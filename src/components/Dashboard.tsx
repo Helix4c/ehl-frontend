@@ -277,7 +277,7 @@ export default function Dashboard() {
 
         {/* Chat Component */}
         <Grid item xs={12} md={6}>
-          <Card variant="none" sx={{ borderColor: 'black', backgroundColor: 'white' }}>
+          <Card variant="outlined" sx={{ borderColor: 'black', backgroundColor: 'white' }}>
             <CardContent>
               <Chat />
             </CardContent>

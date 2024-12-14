@@ -20,19 +20,20 @@ const Cart: React.FC = () => {
     const { cartItems } = state; // Destructure cartItems from state
 
     const handleRemoveFromCart = (id: number) => {
-        dispatch({ type: 'REMOVE_ITEM', id }); // Dispatch action to remove item
+        dispatch({  type: 'REMOVE_ITEM', id: id.toString() }); // Dispatch action to remove item
     };
 
     // Updated function to handle quantity changes
     const handleUpdateQuantity = (id: number, increment: boolean) => {
-        const item = cartItems.find(item => item.id === id);
+        const item = cartItems.find(item => item.id.toString() === id.toString());
+
         if (item) {
             if (increment) {
                 // Increment quantity
                 dispatch({ type: 'ADD_ITEM', item: { ...item } }); // Reuse existing item; ADD_ITEM handles increasing quantity
             } else {
                 // Decrement quantity
-                dispatch({ type: 'MINUS_ITEM', id }); // Dispatch MINUS_ITEM action
+                dispatch({  type: 'REMOVE_ITEM', id: id.toString()}); // Dispatch MINUS_ITEM action
             }
         }
     };
@@ -73,7 +74,8 @@ const Cart: React.FC = () => {
                                     <Button
                                         variant="outlined"
                                         color="error"
-                                        onClick={() => handleRemoveFromCart(item.id)}
+                                        onClick={() => handleRemoveFromCart(Number(item.id))}
+
                                     >
                                         Remove
                                     </Button>

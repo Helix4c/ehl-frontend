@@ -119,7 +119,7 @@ const CheckoutPage: React.FC = () => {
         } catch (error) {
             setLoading(false);
             console.error('Error:', error);
-            alert("An error occurred while processing your payment: " + error.message);
+            alert("An error occurred while processing your payment: " + (error as Error).message);
         }
     };
 
