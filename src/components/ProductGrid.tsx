@@ -118,7 +118,7 @@ const ProductGrid: React.FC = () => {
   };
 
   // Close snackbar
-  const handleCloseSnackbar = (event?: React.SyntheticEvent, reason?: string) => {
+  const handleCloseSnackbar = (_event?: React.SyntheticEvent, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
@@ -205,11 +205,20 @@ const ProductGrid: React.FC = () => {
       )}
       
       {/* Snackbar Component */}
-      <Snackbar open={snackbarOpen} autoHideDuration={3000} onClose={handleCloseSnackbar}>
-        <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%' }}>
-          {snackbarMessage}
-        </Alert>
-      </Snackbar>
+      <Snackbar
+  open={snackbarOpen}
+  autoHideDuration={3000}
+  
+>
+  <Alert
+    onClose={handleCloseSnackbar}
+    severity="success"
+    sx={{ width: '100%' }}
+  >
+    {snackbarMessage}
+  </Alert>
+</Snackbar>
+
     </Container>
   );
 };

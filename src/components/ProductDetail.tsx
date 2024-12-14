@@ -109,11 +109,12 @@ const ProductDetail: React.FC = () => {
               Stock Quantity: {product?.stock_quantity}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Created At: {new Date(product?.created_at).toLocaleDateString()}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Updated At: {new Date(product?.updated_at).toLocaleDateString()}
-            </Typography>
+  Created At: {product?.created_at ? new Date(product.created_at).toLocaleDateString() : "N/A"}
+</Typography>
+<Typography variant="body2" color="text.secondary">
+  Updated At: {product?.updated_at ? new Date(product.updated_at).toLocaleDateString() : "N/A"}
+</Typography>
+
           </CardContent>
         </Box>
       </Card>

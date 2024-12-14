@@ -24,19 +24,6 @@ const Cart: React.FC = () => {
     };
 
     // Updated function to handle quantity changes
-    const handleUpdateQuantity = (id: number, increment: boolean) => {
-        const item = cartItems.find(item => item.id.toString() === id.toString());
-
-        if (item) {
-            if (increment) {
-                // Increment quantity
-                dispatch({ type: 'ADD_ITEM', item: { ...item } }); // Reuse existing item; ADD_ITEM handles increasing quantity
-            } else {
-                // Decrement quantity
-                dispatch({  type: 'REMOVE_ITEM', id: id.toString()}); // Dispatch MINUS_ITEM action
-            }
-        }
-    };
 
     const calculateTotalPrice = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -94,9 +81,11 @@ const Cart: React.FC = () => {
                             sx={{ marginTop: 2 }}
                             component={Link}
                             to="/checkout"
-                        >
+                        > 
+                        
                             Proceed to Checkout
                         </Button>
+                        
                     </Box>
                 )}
             </Box>
